@@ -2,6 +2,7 @@ import { hashPassword } from "../utils/passwordUtil.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import { TeacherModel } from "../models/teacher.models.js";
 import { compare } from "../utils/passwordUtil.js";
+import { generateToken } from "../utils/tokenUtil.js";
 
 export const addTeacher = async (req, res) => {
     try {

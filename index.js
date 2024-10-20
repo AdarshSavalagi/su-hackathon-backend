@@ -6,6 +6,8 @@ import TeacherRouter from './routes/teacher.route.js';
 import AdminRouter from './routes/admin.route.js';
 import TestRouter from './routes/test.route.js';
 import ResultRouter from './routes/result.route.js';
+import cors from 'cors';
+
 const app = express();
 
 
@@ -13,6 +15,7 @@ connect();
 
 // middlewares
 app.use(express.json());
+app.use(cors());
 
 
 app.use('/api/v1/student', StudentRouter);

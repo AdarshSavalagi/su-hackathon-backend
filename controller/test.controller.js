@@ -1,9 +1,15 @@
 import ApiResponse from "../utils/ApiResponse.js";
-
+import {TestModel} from "../models/test.models.js";
 
 export const createTest = async (req, res) => {
     try {
-        const test = new TestModel(req.body);
+        const body = req.body;
+        const test = new TestModel({
+            teacher: req.teacher._id,
+            title: 'This is title',
+            questions: body,
+            department: req.teacher.department
+        });
         await test.save();
         res.status(201).json(ApiResponse.successResponse(test));
     } catch (error) {
